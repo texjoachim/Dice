@@ -24,9 +24,9 @@ Serial.begin(9600); //zur Ausgabe der Zufallszahl auf der Konsole
 void loop() {
 //Button auslesen
 int state = digitalRead(button);
-//if (state == HIGH) {
+if (state == HIGH) {
 	rollthedice();  //würfeln
-//  }
+  }
 }
 
 void rollthedice() {
