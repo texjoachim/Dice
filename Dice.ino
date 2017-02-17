@@ -5,32 +5,32 @@ byte button = 12; //da ist der Taster dran
 
 void setup() {
 //LED Pins auf Ausgang
-for (int i = 0; i < 7; i++) {
-	pinMode(ledPin[i], OUTPUT);
+	for (int i = 0; i < 7; i++) {
+		pinMode(ledPin[i], OUTPUT);
 	}
 
 //button Pin auf Eingang
-pinMode(button, INPUT);
+	pinMode(button, INPUT);
 
 //alle LEDs aus
-for (int i = 0; i < 7; i++) {
-	digitalWrite(ledPin[i], LOW);
-	//randomSeed(millis());
+	for (int i = 0; i < 7; i++) {
+		digitalWrite(ledPin[i], LOW);
+		//randomSeed(millis());
 	}
-randomSeed(analogRead(0)); // Noise als Initialisierung
-Serial.begin(9600); //zur Ausgabe der Zufallszahl auf der Konsole
+	randomSeed(analogRead(0)); // Noise als Initialisierung
+	Serial.begin(9600); //zur Ausgabe der Zufallszahl auf der Konsole
 }
 
 void loop() {
 //Button auslesen
-int state = digitalRead(button);
-if (state == HIGH) {
-	rollthedice();  //würfeln
-  }
+	int state = digitalRead(button);
+	if (state == HIGH) {
+		rollthedice();  //würfeln
+  	}
 }
 
 void rollthedice() {
-	int dice = random(1, 7); //komisch, aber random(1,6) liefert keine 6!
+	int dice = random(1, 7); //komisch, aber random(1,6) liefert keine 6! Arduino und Clones verhalten sich hier gleich
 	Serial.println(dice); //gibt die Zufallzahl auf der Konsole aus
 	clearLed();
 	delay(1000);
